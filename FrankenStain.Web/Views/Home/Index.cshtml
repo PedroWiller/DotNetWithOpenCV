@@ -1,0 +1,37 @@
+﻿@model IEnumerable<BaseModel>
+@{
+    var total = Model.Count();
+    var mudar = true;
+    var count = 0;
+    var countInterno = 0;
+}
+<div class="row">
+    <div class="col-sm-12">
+        @for (int i = 0; i < Model.Count() / 3; i++)
+        {
+            <div class="row" >
+                <br />
+                @foreach (var item in Model.Skip(count).Take(3))
+                {
+                    <div class="col-sm-4" >
+                        <div class="card" style="width: 18rem; background-color: @item.Color">
+                            <img class="card-img-top" src="@item.URL" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.Nome - @item.TOTAL</h5>
+                                <div class="col-6">
+                                    <img class="card-img-top" src="@item.URL2" alt="Card image cap">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    count++;
+                }
+            </div>
+        }
+    </div>
+</div>
+
+
+
+
+
